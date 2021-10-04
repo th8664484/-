@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mvc>
+    <!-- 请求，由TestController类的t1方法处理 -->
+
+<!--     <mapping path="/test2" class="com.controller.TestController" method="t2"> -->
+<!--         <type>java.lang.String</type> -->
+<!--     </mapping> -->
+    <!-- 文件上传时的普通参数的中文编码处理-->
+    <multipart-encoding>utf-8</multipart-encoding>
+
+    <!-- 规定 使用 mvc-interceptor 告诉框架有一个切面（拦截器）对象
+        在处理请求执行/在调用controller方法之前   切面不一定所有请求之前都处理
+        <include> 指定哪些请求前处理
+        <exclude> 指定不在哪些请求前处理
+    -->
+    <mvc-interceptor class="com.AuthorityManagement.util.AuthInterceptor">
+        <include>/</include>
+    </mvc-interceptor>
+<!--    <mvc-interceptor class="com.AuthorityManagement.util.TestInterceptor">  测试拦截器-->
+<!--        <exclude>/test1,/test2</exclude>-->
+<!--    </mvc-interceptor>-->
+
+<!--    <mapping path="/test3" class="com.controller.TestController" method="t3"></mapping>-->
+
+<!--    <controller-scan package="com.controller,com.controller2"></controller-scan>-->
+</mvc>
